@@ -1,0 +1,16 @@
+﻿@page "/"
+
+@using Microsoft.AspNetCore.Components.Server.Circuits
+@inject CircuitHandler CircuitHandlerService
+
+<h1>Circuit Handler</h1>
+
+<p>
+    Number of Circuits: @((CircuitHandlerService as CircuitEventsHandler.Service.CircuitHandlerService).Circuits.Count)
+    <ul>
+        @foreach (var circuit in (CircuitHandlerService as CircuitEventsHandler.Service.CircuitHandlerService).Circuits)
+        {
+            <li>@circuit.Key</li>
+        }
+    </ul>
+</p>
